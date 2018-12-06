@@ -15,20 +15,24 @@ The scope of this project is to provide Gluster specific Grafana dashboard confi
 ### Manually generate configs and rules
 You can clone this repository and manually generate Grafana Dashboard configs and Prometheus Rules files, and apply it according to your setup.
 
-`$ git clone https://github.com/gluster/gluster-mixins.git`
-
-`$ cd gluster-mixins`
+```
+$ git clone https://github.com/gluster/gluster-mixins.git
+$ cd gluster-mixins
+```
 
 To generate Prometheus Alert file,
+
 `$ make prometheus_alerts.yaml`
 
 To generate Prometheus Rule file,
+
 `$ make prometheus_rules.yaml`
 
 To generate Grafana Dashboard configs,
+
 `$ make dashboards_out`
 
-The `prometheus_alerts.yaml` and `prometheus_rules.yaml` files then needs to be passed to your Prometheus Server, and the files in `dashboards_out` needs to be passed to your Grafana server.
+The **prometheus_alerts.yaml** and **prometheus_rules.yaml** files then needs to be passed to your Prometheus Server, and the files in **dashboards_out** needs to be passed to your Grafana server.
 
 ## Background
 * [Prometheus Monitoring Mixin design doc](https://docs.google.com/document/d/1A9xvzwqnFVSOZ5fD3blKODXfsat5fg6ZhnKu9LK3lB4/edit#)
