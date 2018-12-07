@@ -20,15 +20,15 @@ $ git clone https://github.com/gluster/gluster-mixins.git
 $ cd gluster-mixins
 ```
 
-To generate Prometheus Alert file,
+**To generate Prometheus Alert file**
 
 `$ make prometheus_alerts.yaml`
 
-To generate Prometheus Rule file,
+**To generate Prometheus Rule file**
 
 `$ make prometheus_rules.yaml`
 
-To generate Grafana Dashboard configs,
+**To generate Grafana Dashboard configs**
 
 `$ make dashboards_out`
 
