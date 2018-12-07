@@ -1,4 +1,1 @@
-{
-  prometheusRules+:: {
-  }
-}
+(import 'gluster-volume.libsonnet')
