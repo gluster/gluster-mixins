@@ -1,5 +1,6 @@
 {
   _config+:: {
-    glusterExporterSelector: 'job="gluster-exporter"',
+    glusterExporterSelector: 'job="glusterd2-client"',
+    volumeUtilizationAlertTime: '5m',
   },
 }
