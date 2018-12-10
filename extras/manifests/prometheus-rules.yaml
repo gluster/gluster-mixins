@@ -84,3 +84,41 @@ spec:
       for: 5m
       labels:
         severity: critical
+  - name: thinpool-utilization
+    rules:
+    - alert: GlusterThinpoolDataUtilization
+      annotations:
+        message: Gluster Thinpool {{ $labels.thinpool_name }} Data Utilization more
+          than 80%
+      expr: |
+        gluster_thinpool_data_used_bytes{job="glusterd2-client"} / gluster_thinpool_data_total_bytes{job="glusterd2-client"} > 0.8
+      for: 5m
+      labels:
+        severity: warning
+    - alert: GlusterThinpoolDataUtilization
+      annotations:
+        message: Gluster Thinpool {{ $labels.thinpool_name }} Data Utilization more
+          than 90%
+      expr: |
+        gluster_thinpool_data_used_bytes{job="glusterd2-client"} / gluster_thinpool_data_total_bytes{job="glusterd2-client"} > 0.9
+      for: 5m
+      labels:
+        severity: critical
+    - alert: GlusterThinpoolMetadataUtilization
+      annotations:
+        message: Gluster Thinpool {{ $labels.thinpool_name }} Metadata Utilization
+          more than 80%
+      expr: |
+        gluster_thinpool_metadata_used_bytes{job="glusterd2-client"} / gluster_thinpool_metadata_total_bytes{job="glusterd2-client"} > 0.8
+      for: 5m
+      labels:
+        severity: warning
+    - alert: GlusterThinpoolMetadataUtilization
+      annotations:
+        message: Gluster Thinpool {{ $labels.thinpool_name }} Metadata Utilization
+          more than 90%
+      expr: |
+        gluster_thinpool_metadata_used_bytes{job="glusterd2-client"} / gluster_thinpool_metadata_total_bytes{job="glusterd2-client"} > 0.9
+      for: 5m
+      labels:
+        severity: critical
