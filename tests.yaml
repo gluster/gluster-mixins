@@ -1,0 +1,9 @@
+# Tests for Prometheus Rules and Alerts
+
+rule_files:
+  - prometheus_alerts.yaml
+  - prometheus_rules.yaml
+
+evaluation_interval: 1m
+
+tests:
