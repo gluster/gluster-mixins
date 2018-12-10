@@ -5,11 +5,16 @@ A set of Grafana dashboards and Prometheus alerts for Gluster.
 The scope of this project is to provide Gluster specific Grafana dashboard configs and Prometheus rule files using Prometheus Mixins.
 
 ## Prerequisites
-1. Jsonnet [[Install Jsonnet]](https://github.com/google/jsonnet#building-jsonnet)
+* Jsonnet [[Install Jsonnet]](https://github.com/google/jsonnet#building-jsonnet)
 
    [Jsonnet](https://jsonnet.org/learning/getting_started.html) is a data templating language for app and tool developers.
 
    The mixin project uses Jsonnet to provide reusable and configurable configs for Grafana Dashboards and Prometheus Alerts.
+* Promtool
+  1. [Download](https://golang.org/dl/) Go (>=1.11) and [install](https://golang.org/doc/install) it on your system.
+  2. Setup the [GOPATH](http://www.g33knotes.org/2014/07/60-second-count-down-to-go.html) environment.
+  3. Run `$ go get -d github.com/prometheus/prometheus/cmd/promtool`  
+
 
 ## How to use?
 ### Manually generate configs and rules
