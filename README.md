@@ -10,6 +10,9 @@ The scope of this project is to provide Gluster specific Grafana dashboard confi
    [Jsonnet](https://jsonnet.org/learning/getting_started.html) is a data templating language for app and tool developers.
 
    The mixin project uses Jsonnet to provide reusable and configurable configs for Grafana Dashboards and Prometheus Alerts.
+* Jsonnet-bundler [[Install Jsonnet-bundler]](https://github.com/jsonnet-bundler/jsonnet-bundler#install)
+
+   [Jsonnet-bundler](https://github.com/jsonnet-bundler/jsonnet-bundler) is a package manager for jsonnet.
 * Promtool
   1. [Download](https://golang.org/dl/) Go (>=1.11) and [install](https://golang.org/doc/install) it on your system.
   2. Setup the [GOPATH](http://www.g33knotes.org/2014/07/60-second-count-down-to-go.html) environment.
@@ -24,6 +27,11 @@ You can clone this repository and manually generate Grafana Dashboard configs an
 $ git clone https://github.com/gluster/gluster-mixins.git
 $ cd gluster-mixins
 ```
+
+**To get dependencies**
+
+`$ jb install`
+
 
 **To generate Prometheus Alert file**
 
