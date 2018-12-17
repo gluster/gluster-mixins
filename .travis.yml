@@ -1,0 +1,18 @@
+---
+sudo: true
+
+addons:
+  apt:
+    packages:
+      - python
+      - realpath
+      - ruby
+
+language: go
+
+go:
+  # Kubernetes minimum_go_version can be found in this file:
+  # https://github.com/kubernetes/kubernetes/blob/master/hack/lib/golang.sh
+  - stable
+
+
