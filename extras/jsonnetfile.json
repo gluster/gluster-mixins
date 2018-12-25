@@ -1,0 +1,14 @@
+{
+    "dependencies": [
+        {
+            "name": "gluster-mixins",
+            "source": {
+                "git": {
+                    "remote": "https://github.com/gluster/gluster-mixins",
+                    "subdir": ""
+                }
+            },
+            "version": "master"
+        }
+    ]
+}
