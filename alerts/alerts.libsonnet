@@ -1,4 +1,1 @@
-{
-  prometheusAlerts+:: {
-  },
-}
+(import 'gluster-utilization.libsonnet')
