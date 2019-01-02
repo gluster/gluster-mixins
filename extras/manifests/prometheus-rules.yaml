@@ -16,6 +16,16 @@ spec:
     - expr: |
         sum(max(gluster_subvol_capacity_total_bytes{job="glusterd2-client"}) BY (volume, subvolume)) BY (volume)
       record: gluster:volume_capacity_total_bytes:sum
+  - name: exporter-absent
+    rules:
+    - alert: GlusterExporterDown
+      annotations:
+        message: GlusterExporter has disappeared from Prometheus target discovery.
+      expr: |
+        absent(up{job="glusterd2-client"}==1)
+      for: 15m
+      labels:
+        severity: critical
   - name: gluster-utilization
     rules:
     - alert: GlusterVolumeUtilization
