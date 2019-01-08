@@ -1,9 +1,41 @@
-# Tests for Prometheus Rules and Alerts
-
 rule_files:
   - prometheus_alerts.yaml
-  - prometheus_rules.yaml
-
 evaluation_interval: 1m
-
 tests:
+ - interval: 1m
+   input_series:
+    - series: 'gluster_brick_capacity_used_bytes{job="glusterd2-client",host="host1",brick_path="/host1/brick1"}'
+      values: '100000000+0x5 1717986919+0x15 2040109465+0x10'
+    - series: 'gluster_brick_capacity_bytes_total{job="glusterd2-client",host="host1",brick_path="/host1/brick1"}'
+      values: '2147483648+0x30'
+   alert_rule_test:
+    - alertname: GlusterBrickUtilization
+      eval_time: 6m
+    - alertname: GlusterBrickUtilization
+      eval_time: 11m
+      exp_alerts:
+       - exp_labels:
+           severity: warning
+           job: glusterd2-client
+           host: host1
+           brick_path: /host1/brick1
+         exp_annotations:
+           message: 'Gluster Brick host1:/host1/brick1 Utilization more than 80%'
+ - interval: 1m
+   input_series:
+    - series: 'gluster:volume_capacity_used_bytes_total:sum{job="glusterd2-client",volume="vol1"}'
+      values: '100000000+0x5 1717986919+0x15 2040109465+0x10'
+    - series: 'gluster:volume_capacity_total_bytes:sum{job="glusterd2-client",volume="vol1"}'
+      values: '2147483648+0x30'
+   alert_rule_test:
+    - alertname: GlusterVolumeUtilization
+      eval_time: 6m
+    - alertname: GlusterVolumeUtilization
+      eval_time: 11m
+      exp_alerts:
+       - exp_labels:
+           severity: warning
+           job: glusterd2-client
+           volume: vol1
+         exp_annotations:
+           message: 'Gluster Volume vol1 Utilization more than 80%'
