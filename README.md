@@ -1,5 +1,7 @@
 # Prometheus Monitoring Mixin for Gluster
 
+[![Build Status](https://travis-ci.com/gluster/gluster-mixins.svg?branch=master)](https://travis-ci.com/gluster/gluster-mixins)
+
 A set of Grafana dashboards and Prometheus alerts for Gluster.
 
 The scope of this project is to provide Gluster specific Grafana dashboard configs and Prometheus rule files using Prometheus Mixins.
