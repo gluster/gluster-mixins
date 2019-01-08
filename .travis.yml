@@ -6,8 +6,10 @@ addons:
     packages:
       - python
       - realpath
-      - ruby
 
+env:
+  global:
+     CONTAINER_REPO="gluster/mixins"
 language: go
 
 go:
@@ -30,3 +32,18 @@ script:
     done
 
   - make all
+  - ./build.sh "${CONTAINER_REPO}"
+
+deploy:
+  # Master branch will push the container to :latest
+  - provider: script
+    on:  # yamllint disable-line rule:truthy
+      branch: master
+    script: .travis/push_container.sh ${CONTAINER_REPO} verbatim latest
+  # Tags of the form v + SEMVER (e.g., v1.2.3) will push to the
+  # corresponding container version number (e.g., :1.2.3).
+  - provider: script
+    on:  # yamllint disable-line rule:truthy
+      tags: true
+      condition: $TRAVIS_TAG =~ ^v[0-9]+
+    script: .travis/push_container.sh ${CONTAINER_REPO} version "$TRAVIS_TAG"
