@@ -9,7 +9,7 @@ addons:
 
 env:
   global:
-     CONTAINER_REPO="gluster/mixins"
+     CONTAINER_REPO="gluster/gluster-mixins"
 language: go
 
 go:

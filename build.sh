@@ -2,7 +2,7 @@
 
 set -e -o pipefail
 
-IMAGE=${1-gluster/mixins}
+IMAGE=${1-gluster/gluster-mixins}
 
 # This sets the version variable to (hopefully) a semver compatible string. We
 # expect released versions to have a tag of vX.Y.Z (with Y & Z optional), so we
