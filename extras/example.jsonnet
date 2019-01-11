@@ -1,6 +1,6 @@
 local kp = (import 'operator/jsonnet/kube-prometheus.libsonnet') + {
   _config+:: {
-    namespace: 'monitoring',
+    namespace: 'gcs',
   },
 };
 
