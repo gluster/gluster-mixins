@@ -12,5 +12,10 @@
     // For links between grafana dashboards, you need to tell us if your grafana
     // servers under some non-root path.
     grafanaPrefix: '',
+
+    // We build alerts for the presence of all these jobs.
+    jobs: {
+      GlusterExporter: $._config.glusterExporterSelector,
+    },
   },
 }
