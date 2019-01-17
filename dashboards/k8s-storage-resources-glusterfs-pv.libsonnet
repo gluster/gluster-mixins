@@ -229,7 +229,7 @@ local g = import 'grafana-builder/grafana.libsonnet';
         .addPanel(
           g.panel('Heal Counts-Files in Split-Brain') + { span: 6 } +
           brickStatPanelArgs + { span: 6 } +
-          g.statPanel('')
+          g.statPanel('sum (gluster_volume_split_brain_heal_count%s)' % queryLabels, 'none')
         )
       )
       .addRow(

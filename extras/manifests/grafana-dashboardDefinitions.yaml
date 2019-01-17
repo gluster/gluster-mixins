@@ -1874,7 +1874,7 @@ items:
                           "dashes": false,
                           "datasource": "$datasource",
                           "fill": 1,
-                          "format": "percentunit",
+                          "format": "none",
                           "height": "75px",
                           "id": 21,
                           "legend": {
@@ -1905,7 +1905,7 @@ items:
                           "steppedLine": false,
                           "targets": [
                               {
-                                  "expr": "",
+                                  "expr": "sum (gluster_volume_split_brain_heal_count{volume='$Volume'})",
                                   "format": "time_series",
                                   "instant": true,
                                   "intervalFactor": 2,
