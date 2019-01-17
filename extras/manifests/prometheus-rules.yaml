@@ -5,7 +5,7 @@ metadata:
     prometheus: alert
     role: alert-rules
   name: prometheus-alert-rules
-  namespace: monitoring
+  namespace: gcs
 spec:
   groups:
   - name: gluster-volume.rules
@@ -24,6 +24,24 @@ spec:
       expr: |
         absent(up{job="glusterd2-client"}==1)
       for: 15m
+      labels:
+        severity: critical
+  - name: status-alert.rules
+    rules:
+    - alert: GlusterBrickStatus
+      annotations:
+        message: Gluster Brick {{$labels.hostname}}:{{$labels.brick_path}} is down.
+      expr: |
+        gluster_brick_up{job="glusterd2-client"} == 0
+      for: 1m
+      labels:
+        severity: critical
+    - alert: GlusterVolumeStatus
+      annotations:
+        message: Gluster Volume {{$labels.volume}} is down.
+      expr: |
+        gluster_volume_up{job="glusterd2-client"} == 0
+      for: 1m
       labels:
         severity: critical
   - name: gluster-utilization

@@ -2,7 +2,10 @@
   _config+:: {
     // Selectors are inserted between {} in Prometheus queries.
     glusterExporterSelector: 'job="glusterd2-client"',
+
+    // Duration to raise various Alerts
     volumeUtilizationAlertTime: '5m',
+    statusAlertTime: '1m',
 
     // Grafana dashboard IDs are necessary for stable links for dashboards
     grafanaDashboardIDs: {
