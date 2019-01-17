@@ -6,6 +6,7 @@
     // Duration to raise various Alerts
     volumeUtilizationAlertTime: '5m',
     statusAlertTime: '1m',
+    thinpoolAlertTriggerTime: '5m',
 
     // Grafana dashboard IDs are necessary for stable links for dashboards
     grafanaDashboardIDs: {
