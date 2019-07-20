@@ -12,7 +12,7 @@
 
 #-- Create build environment
 
-FROM docker.io/openshift/origin-release:golang-1.10 as build
+FROM docker.io/openshift/origin-release:golang-1.12 as build
 
 MAINTAINER Ankush Behl anbehl@redhat.com
 
