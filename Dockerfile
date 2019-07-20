@@ -30,11 +30,15 @@ RUN go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb \
 RUN git clone https://github.com/google/jsonnet && \
     git --git-dir=jsonnet/.git checkout v0.10.0 && \
     make -C jsonnet CC=clang CXX=clang++ && \
-    cp jsonnet/jsonnet /usr/bin
+    cp jsonnet/jsonnet /usr/bin && \
+    cp jsonnet/jsonnetfmt /usr/bin
 
 # cloning the gluster-mixins project and making gluster-mixins as working dir
 COPY . /gluster/gluster-mixins/
 WORKDIR /gluster/gluster-mixins/
+
+# installing required dependency from jsonnetfile.json
+RUN jb install
 
 # make will run tests and generate the intermidiate files
 RUN make 
